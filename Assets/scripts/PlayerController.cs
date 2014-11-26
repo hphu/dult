@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	private float growthRate;
 	private Vector3 playerSize;
 	//maybe change this to get floor's position dynamically from gameobject later
-	private float floorposition = .5f;
+	private float floorposition = 0f;
 	public float speed;
 	//Dimensions of bounding box
 	public float xMin, xMax, yMin, yMax;
@@ -23,16 +23,15 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		Debug.Log (this.renderer.bounds.size);
 		Debug.Log (this.transform.localPosition.y);
-
 		this.transform.localScale = playerSize;
 
 		playerSize.x += (float)(growthRate * Time.deltaTime);
 		playerSize.y += (float)(growthRate * Time.deltaTime);
 
 		//if player grew below floor, push up
-		//This causes the box to float in the air
+		//if player's center - half player's height is lower than the floor position
 		if (this.transform.localPosition.y - (this.renderer.bounds.size.y / 2) < floorposition) {
-			this.transform.position += new Vector3(0, growthRate* Time.deltaTime, 0);
+			this.transform.position += new Vector3(0, floorposition - (this.transform.localPosition.y - (this.renderer.bounds.size.y / 2)), 0);
 		}
 
 		//Movement
