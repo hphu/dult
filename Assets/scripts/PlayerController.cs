@@ -14,15 +14,16 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		/*
 		renderer.material.color = new Color(0.5f,0.5f,1); //blue for testing
+		*/
 		this.growthRate = .1f;
 		this.playerSize = new Vector3 (1f, 1f, 1f);
 	}
 
 
 	void FixedUpdate () {
-		Debug.Log (this.renderer.bounds.size);
-		Debug.Log (this.transform.localPosition.y);
+
 		this.transform.localScale = playerSize;
 
 		playerSize.x += (float)(growthRate * Time.deltaTime);
