@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
 	public float startWait;
 	public float waveWait;
 	public GUIText scoreText;
-	public int score;
+	private int score;
 	
 	void Start()
 	{

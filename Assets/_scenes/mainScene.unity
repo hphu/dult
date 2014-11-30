@@ -256,7 +256,7 @@ Transform:
   - {fileID: 1736240274}
   - {fileID: 559527314}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &793241557
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ Transform:
   - {fileID: 2025425543}
   - {fileID: 1490557488}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1084405506
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +356,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1084405511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +600,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1702364720
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +612,7 @@ GameObject:
   - 114: {fileID: 1702364721}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -631,11 +631,10 @@ MonoBehaviour:
   food: {fileID: 100000, guid: 531857bb7af949f41bea970a48a9ba41, type: 2}
   spawnValues: {x: 22, y: 33, z: 0}
   foodCount: 10
-  spawnWait: .75
+  spawnWait: 1
   startWait: 1
   waveWait: 5
   scoreText: {fileID: 1661905541}
-  scorel: 0
 --- !u!4 &1702364722
 Transform:
   m_ObjectHideFlags: 0
@@ -647,7 +646,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
 --- !u!1 &1736240273
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DestroyByContact : MonoBehaviour {
 	public int scoreValue;
-	public GameController gameController;
+	private GameController gameController;
 
 	void Start()
 	{
@@ -19,6 +19,8 @@ public class DestroyByContact : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 
 		Destroy (gameObject);
-		gameController.AddScore (scoreValue);
+		if (other.tag == "Player") {
+			gameController.AddScore (scoreValue);
+		}
 	}
 }
