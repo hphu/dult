@@ -17,7 +17,7 @@ public class DestroyByContact : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-
+		Debug.Log (gameController.score);
 		Destroy (gameObject);
 		if (other.tag == "Player") {
 			gameController.AddScore (scoreValue);
