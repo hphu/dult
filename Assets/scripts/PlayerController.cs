@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	private float floorposition = 0.4f;
 	private bool isGrounded = true;
 	public float fattening;
+	public float speedDecrease;
 	public float speed;
 	public float moveY = 0;
 	public float jumpHeight;
@@ -80,6 +81,7 @@ public class PlayerController : MonoBehaviour {
 	public void IncreaseWidth () 
 	{
 		playerSize.x += fattening;
+		this.speed -= speedDecrease;
 	}
 
 
