@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	private bool isGrounded = true;
 	public float speed;
 	public float moveY = 0;
+	public float jumpHeight;
 	//Dimensions of bounding box
 	public float xMin, xMax, yMin, yMax;
 
@@ -39,8 +40,8 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		//Movement
-		if (Input.GetKey ("up") && this.isGrounded) {
-			this.moveY += 4.5f;
+		if ((Input.GetKey ("space") || Input.GetKey ("up")) && this.isGrounded) {
+			this.moveY += jumpHeight;
 		}
 		//deaccelerate
 		if (this.moveY > 0) {
@@ -73,6 +74,11 @@ public class PlayerController : MonoBehaviour {
 		if (a.gameObject.tag == "Floor") {
 			this.isGrounded = false;
 		}
+	}
+
+	public void IncreaseWidth () 
+	{
+
 	}
 
 
