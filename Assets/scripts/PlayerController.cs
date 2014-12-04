@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	//maybe change this to get floor's position dynamically from gameobject later
 	private float floorposition = 0.4f;
 	private bool isGrounded = true;
+	public float fattening;
 	public float speed;
 	public float moveY = 0;
 	public float jumpHeight;
@@ -78,7 +79,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void IncreaseWidth () 
 	{
-		playerSize.x += .2f;
+		playerSize.x += fattening;
 	}
 
 
