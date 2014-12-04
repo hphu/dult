@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void IncreaseWidth () 
 	{
-
+		playerSize.x += .2f;
 	}
 
 

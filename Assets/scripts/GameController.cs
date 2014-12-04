@@ -4,6 +4,7 @@ using System.Collections;
 public class GameController : MonoBehaviour 
 {
 	public GameObject food;
+	public GameObject badFood;
 	public Vector3 spawnValues;
 	public int foodCount;
 	public float spawnWait;
@@ -31,7 +32,12 @@ public class GameController : MonoBehaviour
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 				//Sets no rotation
 				Quaternion spawnRotation = Quaternion.identity;
-				Instantiate (food, spawnPosition, spawnRotation);
+				if(Random.value >= .2){
+					Instantiate (food, spawnPosition, spawnRotation);
+				}
+				else{
+					Instantiate (badFood, spawnPosition, spawnRotation);
+				}
 				yield return new  WaitForSeconds (spawnWait);
 			}
 			yield return new  WaitForSeconds (waveWait);

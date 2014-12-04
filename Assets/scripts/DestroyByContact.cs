@@ -4,6 +4,7 @@ using System.Collections;
 public class DestroyByContact : MonoBehaviour {
 	public int scoreValue;
 	private GameController gameController;
+	private PlayerController playerController;
 
 	void Start()
 	{
@@ -14,12 +15,24 @@ public class DestroyByContact : MonoBehaviour {
 		if (gameController == null) {
 			Debug.Log ("Cannot find 'GameController' script");
 		}
+		GameObject playerControllerObject = GameObject.FindWithTag ("Player");
+		if (playerControllerObject != null) {
+			playerController = playerControllerObject.GetComponent<PlayerController>();
+		}
+		if (playerController == null) {
+			Debug.Log ("Cannot find 'playerController' script");
+		}
 	}
 
 	void OnTriggerEnter(Collider other) {
+		Debug.Log (other);
+		Debug.Log (this.gameObject);
 		Destroy (gameObject);	
 		if (other.tag == "Player") {
 			gameController.AddScore (scoreValue);
+			if (this.tag == "BadFood") {playerController.IncreaseWidth();}
 		}
+
+
 	}
 }
