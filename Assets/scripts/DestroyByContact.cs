@@ -3,6 +3,8 @@ using System.Collections;
 
 public class DestroyByContact : MonoBehaviour {
 	public int scoreValue;
+	public GameObject textObject;
+	public string text;
 	private GameController gameController;
 	private PlayerController playerController;
 
@@ -27,8 +29,13 @@ public class DestroyByContact : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		Destroy (gameObject);	
 		if (other.tag == "Player") {
+			var obj = (GameObject)Instantiate(textObject, transform.position, transform.rotation);
+			obj.GetComponent<TextFader>().initialize(this.text);
+
 			gameController.AddScore (scoreValue);
-			if (this.tag == "BadFood") {playerController.IncreaseWidth();}
+			if (this.tag == "BadFood") {
+				playerController.IncreaseWidth();
+			}
 		}
 
 

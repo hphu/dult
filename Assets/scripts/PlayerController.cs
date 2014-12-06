@@ -19,12 +19,14 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		/*
-		renderer.material.color = new Color(0.5f,0.5f,1); //blue for testing
-		*/
 		Physics.gravity = new Vector3(0,-1122,0);
 		this.growthRate = .1f;
 		this.playerSize = new Vector3 (1f, 1f, 1f);
+
+		//set Xmin/Xmax based on camera view
+		/*float cameraDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
+		xMin = Camera.main.ViewportToWorldPoint(new Vector3(0,0, cameraDistance)).x;
+		xMax = Camera.main.ViewportToWorldPoint(new Vector3(1,1, cameraDistance)).x; */
 	}
 
 
@@ -37,11 +39,11 @@ public class PlayerController : MonoBehaviour {
 
 		//if player grew below floor, push up
 		//if player's center - half player's height is lower than the floor position
-		if (this.transform.localPosition.y - (this.renderer.bounds.size.y / 2) < floorposition) {
-			this.transform.position += new Vector3(0, floorposition - (this.transform.localPosition.y - (this.renderer.bounds.size.y / 2)), 0);
+		if (this.transform.localPosition.y - playerSize.y/2 < floorposition) {
+			this.transform.position += new Vector3(0, floorposition - (this.transform.localPosition.y - playerSize.y/2), 0);
 		}
 
-		//Movement
+		//Jump Movement
 		if ((Input.GetKey ("space") || Input.GetKey ("up")) && this.isGrounded) {
 			this.moveY += jumpHeight;
 		}
@@ -60,7 +62,7 @@ public class PlayerController : MonoBehaviour {
 		//Bounding
 		rigidbody.position = new Vector3
 		(
-			Mathf.Clamp (rigidbody.position.x, xMin, xMax),
+			Mathf.Clamp (rigidbody.position.x, xMin + playerSize.x/2, xMax - playerSize.x/2),
 			Mathf.Clamp(rigidbody.position.y, yMin, yMax),
 			0.0f
 		);

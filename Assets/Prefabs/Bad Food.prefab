@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: -1
+  textObject: {fileID: 100000, guid: 8443460648b79c248ad102646fa8a76d, type: 2}
+  text: Calories
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
